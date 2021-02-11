@@ -3,7 +3,7 @@
 int data()
  {
     int a; 
-    printf("Enter a number: ");
+    printf("Enter the number: ");
     scanf("%d",&a);
     return a;
   }
