@@ -7,14 +7,14 @@ float input()
     scanf("%d",&a);
     return a;
 }
-float cumpute_add(float a, float b, float c,float d)
+float add(float a, float b, float c,float d)
 {
     
     return sqrt(pow((a-c),2)+pow((b-d),2));
 }
 int display(float sum)
 {
-    printf("the distance is:%.2f",sum);
+    printf("The distance between two points is:%.2f",sum);
     return 0;
 }
 int main() 
