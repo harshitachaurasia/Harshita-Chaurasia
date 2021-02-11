@@ -4,7 +4,7 @@
 struct points  
 { 	
   float x,y;
-}p1,p2;
+}pointer1,pointer2;
 
 float input() 
 {
@@ -25,12 +25,12 @@ int main()
 {
   float sum;
   printf("Enter (x1,y1):");
-  p1.x = input();
-  p1.y = input();
+  pointer1.x = input();
+  pointer1.y = input();
   printf("Enter (x2,y2):");
-  p2.x = input();
-  p2.y = input();
-  sum = compute_add(p1.x, p1.y, p2.x, p2.y);
+  pointer2.x = input();
+  pointer2.y = input();
+  sum = compute_add(pointer1.x, pointer1.y, pointer2.x, pointer2.y);
   display(sum);
   return 0;
 }
