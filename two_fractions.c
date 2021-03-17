@@ -1,42 +1,45 @@
-//WAP to find the sum of two fractions.
 #include <stdio.h>
 #include <math.h>
-struct fraction{
+struct fractions
+{
     int num, den;
 };
-
-int gcd(int a, int b) 
-{ 
-    if (a == 0) 
-        return b; 
-    return gcd(b%a, a); 
-} 
-
-void lowest(int den3, int num3) 
-{ 
-
-    int common_factor = gcd(num3,den3); 
-    den3 = den3/common_factor; 
-    num3 = num3/common_factor; 
-} 
-
-struct fraction get_prams()
+typedef struct fractions fract;
+fract inp()
 {
-    struct fraction p1;
-    printf("\nEnter the fraction(num,den): ");
-    scanf("%d %d",&p1.num,&p1.den);
-    return p1;
+    fract f;
+    printf("Enter the numerator : \n");
+    scanf("%d", &f.num);
+    printf("Enter the denominator : \n");
+    scanf("%d", &f.den);
+    return f;
 }
-
-int main(){
-    struct fraction c1,c2;
-    int num3,den3;
-    c1=get_prams();
-    c2=get_prams();
-    den3=gcd(c1.den,c2.den);
-    den3 = (c1.den*c2.den) / den3;
-    num3 = (c1.num)*(den3/c1.den) + (c2.num)*(den3/c2.den);
-    lowest(den3,num3);
-    printf("\n Sum of %d/%d and %d/%d is : %d/%d \n",c1.num,c1.den,c2.num,c2.den,num3,den3);
+fract calc(fract f1, fract f2)
+{
+    fract sum;
+    if (f1.den == f2.den)
+    {
+        sum.num = f1.num + f2.num;
+        sum.den = f1.den;
+        return sum;
+    }
+    else
+    {
+        sum.num = (f1.num * f2.den) + (f2.num * f1.den);
+        sum.den = f1.den * f2.den;
+        return sum;
+    }
+}
+void out(fract sum)
+{
+    printf("The sum of both the fractions is %d/%d .\n", sum.num, sum.den);
+}
+int main()
+{
+    fract f1, f2, s;
+    f1 = inp();
+    f2 = inp();
+    s = calc(f1, f2);
+    out(s);
     return 0;
 }
